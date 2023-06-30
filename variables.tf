@@ -37,63 +37,6 @@ variable "cluster_version" {
 }
 
 #-------------------------------
-# EKS Cluster Security Groups
-#-------------------------------
-variable "create_cluster_security_group" {
-  description = "Toggle to create or assign cluster security group"
-  type        = bool
-  default     = true
-}
-
-variable "cluster_security_group_name" {
-  description = "Name to use on cluster security group created"
-  type        = string
-  default     = null
-}
-
-variable "cluster_security_group_use_name_prefix" {
-  description = "Determines whether cluster security group name (`cluster_security_group_name`) is used as a prefix"
-  type        = bool
-  default     = true
-}
-
-variable "cluster_security_group_description" {
-  description = "Description of the cluster security group created"
-  type        = string
-  default     = "EKS cluster security group"
-}
-
-variable "cluster_security_group_id" {
-  description = "Security group to be used if creation of cluster security group is turned off"
-  type        = string
-  default     = ""
-}
-
-variable "cluster_additional_security_group_ids" {
-  description = "List of additional, externally created security group IDs to attach to the cluster control plane"
-  type        = list(string)
-  default     = []
-}
-
-variable "cluster_security_group_additional_rules" {
-  description = "List of additional security group rules to add to the cluster security group created. Set `source_node_security_group = true` inside rules to set the `node_security_group` as source"
-  type        = any
-  default     = {}
-}
-
-variable "cluster_security_group_tags" {
-  description = "A map of additional tags to add to the cluster security group created"
-  type        = map(string)
-  default     = {}
-}
-
-variable "create_cluster_primary_security_group_tags" {
-  description = "Indicates whether or not to tag the cluster's primary security group. This security group is created by the EKS service, not the module, and therefore tagging is handled after cluster creation"
-  type        = bool
-  default     = true
-}
-
-#-------------------------------
 # EKS Cluster VPC Config
 #-------------------------------
 variable "cluster_endpoint_public_access" {
