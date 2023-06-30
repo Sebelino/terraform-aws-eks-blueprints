@@ -1,5 +1,5 @@
 locals {
-  cluster_encryption_config = length(var.cluster_encryption_config) > 0 ? var.cluster_encryption_config : [
+  cluster_encryption_config = [
     {
       provider_key_arn = try(module.kms[0].key_arn, var.cluster_kms_key_arn)
       resources        = ["secrets"]
