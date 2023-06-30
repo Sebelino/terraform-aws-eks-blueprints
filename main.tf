@@ -1,12 +1,3 @@
-locals {
-  cluster_encryption_config = [
-    {
-      provider_key_arn = try(module.kms[0].key_arn, var.cluster_kms_key_arn)
-      resources        = ["secrets"]
-    }
-  ]
-}
-
 module "kms" {
   count  = 1
   source = "./modules/aws-kms"
@@ -68,8 +59,13 @@ module "aws_eks" {
   cloudwatch_log_group_kms_key_id        = var.cloudwatch_log_group_kms_key_id
 
   attach_cluster_encryption_policy = false
-  cluster_encryption_config        = local.cluster_encryption_config
-  cluster_identity_providers       = var.cluster_identity_providers
+  cluster_encryption_config = [
+    {
+      provider_key_arn = try(module.kms[0].key_arn, var.cluster_kms_key_arn)
+      resources        = ["secrets"]
+    }
+  ]
+  cluster_identity_providers = var.cluster_identity_providers
 
   tags = var.tags
 }
