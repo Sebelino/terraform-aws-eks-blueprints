@@ -37,13 +37,6 @@ module "aws_eks" {
   cluster_security_group_tags                = var.cluster_security_group_tags
   create_cluster_primary_security_group_tags = var.create_cluster_primary_security_group_tags
 
-  create_node_security_group           = var.create_node_security_group
-  node_security_group_name             = var.node_security_group_name
-  node_security_group_use_name_prefix  = var.node_security_group_use_name_prefix
-  node_security_group_description      = var.node_security_group_description
-  node_security_group_additional_rules = var.node_security_group_additional_rules
-  node_security_group_tags             = var.node_security_group_tags
-
   openid_connect_audiences = var.openid_connect_audiences
 
   create_cloudwatch_log_group            = var.create_cloudwatch_log_group
