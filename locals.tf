@@ -16,7 +16,6 @@ locals {
   cluster_endpoint   = module.aws_eks.cluster_endpoint
   vpc_id             = var.vpc_id
   private_subnet_ids = var.private_subnet_ids
-  public_subnet_ids  = var.public_subnet_ids
 
   enable_workers            = length(var.self_managed_node_groups) > 0 || length(var.managed_node_groups) > 0 ? true : false
   worker_security_group_ids = local.enable_workers ? compact([module.aws_eks.node_security_group_id]) : []
@@ -30,7 +29,7 @@ locals {
     # VPC Config
     vpc_id             = local.vpc_id
     private_subnet_ids = local.private_subnet_ids
-    public_subnet_ids  = local.public_subnet_ids
+    public_subnet_ids  = []
 
     # Worker Security Group
     worker_security_group_ids = local.worker_security_group_ids

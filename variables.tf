@@ -18,12 +18,6 @@ variable "private_subnet_ids" {
   default     = []
 }
 
-variable "public_subnet_ids" {
-  description = "List of public subnets Ids for the worker nodes"
-  type        = list(string)
-  default     = []
-}
-
 variable "cluster_name" {
   description = "EKS Cluster Name"
   type        = string
