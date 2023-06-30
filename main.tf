@@ -22,9 +22,8 @@ module "aws_eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "v18.29.1"
 
-  cluster_name     = var.cluster_name
-  cluster_version  = var.cluster_version
-  cluster_timeouts = var.cluster_timeouts
+  cluster_name    = var.cluster_name
+  cluster_version = var.cluster_version
 
   create_iam_role               = var.create_iam_role
   iam_role_arn                  = var.iam_role_arn
@@ -36,7 +35,6 @@ module "aws_eks" {
   iam_role_additional_policies  = var.iam_role_additional_policies
 
   subnet_ids                           = var.private_subnet_ids
-  control_plane_subnet_ids             = var.control_plane_subnet_ids
   cluster_endpoint_private_access      = var.cluster_endpoint_private_access
   cluster_endpoint_public_access       = var.cluster_endpoint_public_access
   cluster_endpoint_public_access_cidrs = var.cluster_endpoint_public_access_cidrs
