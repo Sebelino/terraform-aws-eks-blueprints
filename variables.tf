@@ -48,12 +48,6 @@ variable "cluster_kms_key_additional_admin_arns" {
 #-------------------------------
 # EKS Cluster Kubernetes Network Config
 #-------------------------------
-variable "cluster_ip_family" {
-  description = "The IP family used to assign Kubernetes pod and service addresses. Valid values are `ipv4` (default) and `ipv6`. You can only specify an IP family when you create a cluster, changing this value will force a new cluster to be created"
-  type        = string
-  default     = "ipv4"
-}
-
 variable "cluster_service_ipv4_cidr" {
   description = "The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks"
   type        = string
