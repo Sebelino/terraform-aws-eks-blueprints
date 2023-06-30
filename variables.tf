@@ -397,21 +397,6 @@ variable "eks_readiness_timeout" {
 }
 
 #-------------------------------
-# Amazon EMR on EKS
-#-------------------------------
-variable "enable_emr_on_eks" {
-  description = "Enable EMR on EKS"
-  type        = bool
-  default     = false
-}
-
-variable "emr_on_eks_teams" {
-  description = "EMR on EKS Teams config"
-  type        = any
-  default     = {}
-}
-
-#-------------------------------
 # TEAMS (Soft Multi-tenancy)
 #-------------------------------
 variable "application_teams" {
