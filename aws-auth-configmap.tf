@@ -4,13 +4,10 @@ resource "kubernetes_config_map" "aws_auth" {
   metadata {
     name      = "aws-auth"
     namespace = "kube-system"
-    labels = merge(
-      {
-        "app.kubernetes.io/managed-by" = "terraform-aws-eks-blueprints"
-        "app.kubernetes.io/created-by" = "terraform-aws-eks-blueprints"
-      },
-      var.aws_auth_additional_labels
-    )
+    labels = {
+      "app.kubernetes.io/managed-by" = "terraform-aws-eks-blueprints"
+      "app.kubernetes.io/created-by" = "terraform-aws-eks-blueprints"
+    }
   }
 
   data = {
@@ -20,8 +17,8 @@ resource "kubernetes_config_map" "aws_auth" {
         var.map_roles,
       ))
     )
-    mapUsers    = yamlencode(var.map_users)
-    mapAccounts = yamlencode(var.map_accounts)
+    mapUsers    = yamlencode([])
+    mapAccounts = yamlencode([])
   }
 
   depends_on = [module.aws_eks.cluster_id, data.http.eks_cluster_readiness[0]]
