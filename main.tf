@@ -61,7 +61,6 @@ module "aws_eks" {
 
   enable_irsa              = var.enable_irsa
   openid_connect_audiences = var.openid_connect_audiences
-  custom_oidc_thumbprints  = var.custom_oidc_thumbprints
 
   create_cloudwatch_log_group            = var.create_cloudwatch_log_group
   cluster_enabled_log_types              = var.cluster_enabled_log_types

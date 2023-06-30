@@ -256,12 +256,6 @@ variable "openid_connect_audiences" {
   default     = []
 }
 
-variable "custom_oidc_thumbprints" {
-  description = "Additional list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s)"
-  type        = list(string)
-  default     = []
-}
-
 variable "cluster_identity_providers" {
   description = "Map of cluster identity provider configurations to enable for the cluster. Note - this is different/separate from IRSA"
   type        = any
