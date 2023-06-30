@@ -168,12 +168,12 @@ output "managed_node_group_aws_auth_config_map" {
 #-------------------------------
 output "fargate_profiles" {
   description = "Outputs from EKS Fargate profiles groups "
-  value       = module.aws_eks_fargate_profiles
+  value       = null
 }
 
 output "fargate_profiles_iam_role_arns" {
   description = "IAM role arn's for Fargate Profiles"
-  value       = var.create_eks && length(var.fargate_profiles) > 0 ? { for nodes in sort(keys(var.fargate_profiles)) : nodes => module.aws_eks_fargate_profiles[nodes].eks_fargate_profile_role_name } : null
+  value       = null
 }
 
 output "fargate_profiles_aws_auth_config_map" {

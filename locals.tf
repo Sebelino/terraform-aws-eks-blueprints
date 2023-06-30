@@ -95,17 +95,7 @@ locals {
   ] : []
 
   # Fargate node IAM Roles for aws-auth
-  fargate_profiles_aws_auth_config_map = length(var.fargate_profiles) > 0 ? [
-    for key, node in var.fargate_profiles : {
-      rolearn : try(node.iam_role_arn, "arn:${local.context.aws_partition_id}:iam::${local.context.aws_caller_identity_account_id}:role/${module.aws_eks.cluster_id}-${node.fargate_profile_name}")
-      username : "system:node:{{SessionName}}"
-      groups : [
-        "system:bootstrappers",
-        "system:nodes",
-        "system:node-proxier"
-      ]
-    }
-  ] : []
+  fargate_profiles_aws_auth_config_map = []
 
   # EMR on EKS IAM Roles for aws-auth
   emr_on_eks_config_map = []
