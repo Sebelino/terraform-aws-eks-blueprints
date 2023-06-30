@@ -120,12 +120,6 @@ variable "cloudwatch_log_group_kms_key_id" {
   default     = null
 }
 
-variable "openid_connect_audiences" {
-  description = "List of OpenID Connect audience client IDs to add to the IRSA provider"
-  type        = list(string)
-  default     = []
-}
-
 variable "cluster_identity_providers" {
   description = "Map of cluster identity provider configurations to enable for the cluster. Note - this is different/separate from IRSA"
   type        = any

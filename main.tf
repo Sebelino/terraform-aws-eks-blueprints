@@ -28,8 +28,6 @@ module "aws_eks" {
 
   vpc_id = var.vpc_id
 
-  openid_connect_audiences = var.openid_connect_audiences
-
   create_cloudwatch_log_group            = var.create_cloudwatch_log_group
   cluster_enabled_log_types              = var.cluster_enabled_log_types
   cloudwatch_log_group_retention_in_days = var.cloudwatch_log_group_retention_in_days
