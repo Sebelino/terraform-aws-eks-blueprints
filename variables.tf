@@ -395,18 +395,3 @@ variable "eks_readiness_timeout" {
   type        = number
   default     = "600"
 }
-
-#-------------------------------
-# TEAMS (Soft Multi-tenancy)
-#-------------------------------
-variable "application_teams" {
-  description = "Map of maps of Application Teams to create"
-  type        = any
-  default     = {}
-}
-
-variable "platform_teams" {
-  description = "Map of maps of platform teams to create"
-  type        = any
-  default     = {}
-}
