@@ -16,14 +16,8 @@ module "aws_eks" {
   cluster_name    = var.cluster_name
   cluster_version = var.cluster_version
 
-  create_iam_role               = var.create_iam_role
-  iam_role_arn                  = var.iam_role_arn
-  iam_role_use_name_prefix      = false
-  iam_role_name                 = local.cluster_iam_role_name
-  iam_role_path                 = var.iam_role_path
-  iam_role_description          = var.iam_role_description
-  iam_role_permissions_boundary = var.iam_role_permissions_boundary
-  iam_role_additional_policies  = var.iam_role_additional_policies
+  iam_role_use_name_prefix = false
+  iam_role_name            = local.cluster_iam_role_name
 
   subnet_ids                           = var.private_subnet_ids
   cluster_endpoint_private_access      = var.cluster_endpoint_private_access

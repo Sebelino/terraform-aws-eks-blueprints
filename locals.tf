@@ -39,8 +39,8 @@ locals {
     aws_partition_dns_suffix = local.context.aws_partition_dns_suffix
     aws_partition_id         = local.context.aws_partition_id
 
-    iam_role_path                 = var.iam_role_path
-    iam_role_permissions_boundary = var.iam_role_permissions_boundary
+    iam_role_path                 = null
+    iam_role_permissions_boundary = null
 
     # Service IPv4/IPv6 CIDR range
     service_ipv6_cidr = var.cluster_service_ipv6_cidr
@@ -65,7 +65,7 @@ locals {
   partition  = local.context.aws_partition_id
   account_id = local.context.aws_caller_identity_account_id
 
-  cluster_iam_role_name        = var.iam_role_name == null ? "${var.cluster_name}-cluster-role" : var.iam_role_name
-  cluster_iam_role_pathed_name = var.iam_role_path == null ? local.cluster_iam_role_name : "${trimprefix(var.iam_role_path, "/")}${local.cluster_iam_role_name}"
-  cluster_iam_role_pathed_arn  = var.create_iam_role ? "arn:${local.context.aws_partition_id}:iam::${local.context.aws_caller_identity_account_id}:role/${local.cluster_iam_role_pathed_name}" : var.iam_role_arn
+  cluster_iam_role_name        = "${var.cluster_name}-cluster-role"
+  cluster_iam_role_pathed_name = local.cluster_iam_role_name
+  cluster_iam_role_pathed_arn  = "arn:${local.context.aws_partition_id}:iam::${local.context.aws_caller_identity_account_id}:role/${local.cluster_iam_role_pathed_name}"
 }
