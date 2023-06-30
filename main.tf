@@ -24,7 +24,6 @@ module "aws_eks" {
   cluster_endpoint_public_access       = true
   cluster_endpoint_public_access_cidrs = ["0.0.0.0/0"]
   cluster_ip_family                    = "ipv4"
-  cluster_service_ipv4_cidr            = var.cluster_service_ipv4_cidr
 
   vpc_id = var.vpc_id
 

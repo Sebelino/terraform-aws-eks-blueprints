@@ -42,8 +42,8 @@ locals {
     iam_role_permissions_boundary = null
 
     # Service IPv4/IPv6 CIDR range
-    service_ipv6_cidr = var.cluster_service_ipv6_cidr
-    service_ipv4_cidr = var.cluster_service_ipv4_cidr
+    service_ipv6_cidr = null
+    service_ipv4_cidr = null
 
     tags = var.tags
   }

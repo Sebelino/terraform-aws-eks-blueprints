@@ -48,17 +48,6 @@ variable "cluster_kms_key_additional_admin_arns" {
 #-------------------------------
 # EKS Cluster Kubernetes Network Config
 #-------------------------------
-variable "cluster_service_ipv4_cidr" {
-  description = "The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks"
-  type        = string
-  default     = null
-}
-
-variable "cluster_service_ipv6_cidr" {
-  description = "The IPV6 Service CIDR block to assign Kubernetes service IP addresses"
-  type        = string
-  default     = null
-}
 
 variable "cluster_identity_providers" {
   description = "Map of cluster identity provider configurations to enable for the cluster. Note - this is different/separate from IRSA"
