@@ -82,17 +82,7 @@ locals {
   ] : []
 
   # Self Managed Windows node IAM Roles for aws-auth
-  windows_node_group_aws_auth_config_map = length(var.self_managed_node_groups) > 0 && var.enable_windows_support ? [
-    for key, node in var.self_managed_node_groups : {
-      rolearn : "arn:${local.context.aws_partition_id}:iam::${local.context.aws_caller_identity_account_id}:role/${module.aws_eks.cluster_id}-${node.node_group_name}"
-      username : "system:node:{{EC2PrivateDNSName}}"
-      groups : [
-        "system:bootstrappers",
-        "system:nodes",
-        "eks:kube-proxy-windows"
-      ]
-    } if node.launch_template_os == "windows"
-  ] : []
+  windows_node_group_aws_auth_config_map = []
 
   # Fargate node IAM Roles for aws-auth
   fargate_profiles_aws_auth_config_map = []

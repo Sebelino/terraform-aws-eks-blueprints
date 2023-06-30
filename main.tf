@@ -79,23 +79,6 @@ module "aws_eks" {
   tags = var.tags
 }
 
-resource "kubernetes_config_map" "amazon_vpc_cni" {
-  count = var.enable_windows_support ? 1 : 0
-  metadata {
-    name      = "amazon-vpc-cni"
-    namespace = "kube-system"
-  }
-
-  data = {
-    "enable-windows-ipam" = var.enable_windows_support ? "true" : "false"
-  }
-
-  depends_on = [
-    module.aws_eks.cluster_id,
-    data.http.eks_cluster_readiness[0]
-  ]
-}
-
 # ---------------------------------------------------------------------------------------------------------------------
 # Teams
 # ---------------------------------------------------------------------------------------------------------------------
