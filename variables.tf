@@ -123,31 +123,10 @@ variable "cluster_kms_key_arn" {
   default     = null
 }
 
-variable "cluster_kms_key_deletion_window_in_days" {
-  description = "The waiting period, specified in number of days (7 - 30). After the waiting period ends, AWS KMS deletes the KMS key"
-  type        = number
-  default     = 30
-}
-
 variable "cluster_kms_key_additional_admin_arns" {
   description = "A list of additional IAM ARNs that should have FULL access (kms:*) in the KMS key policy"
   type        = list(string)
   default     = []
-}
-
-variable "enable_cluster_encryption" {
-  description = "Determines whether cluster encryption is enabled"
-  type        = bool
-  default     = true
-}
-
-variable "cluster_encryption_config" {
-  description = "Configuration block with encryption configuration for the cluster"
-  type = list(object({
-    provider_key_arn = string
-    resources        = list(string)
-  }))
-  default = []
 }
 
 #-------------------------------

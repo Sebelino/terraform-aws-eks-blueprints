@@ -14,7 +14,7 @@ module "kms" {
   alias                   = "alias/${var.cluster_name}"
   description             = "${var.cluster_name} EKS cluster secret encryption key"
   policy                  = data.aws_iam_policy_document.eks_key.json
-  deletion_window_in_days = var.cluster_kms_key_deletion_window_in_days
+  deletion_window_in_days = 30
   tags                    = var.tags
 }
 
@@ -68,7 +68,7 @@ module "aws_eks" {
   cloudwatch_log_group_kms_key_id        = var.cloudwatch_log_group_kms_key_id
 
   attach_cluster_encryption_policy = false
-  cluster_encryption_config        = var.enable_cluster_encryption ? local.cluster_encryption_config : []
+  cluster_encryption_config        = local.cluster_encryption_config
   cluster_identity_providers       = var.cluster_identity_providers
 
   tags = var.tags
