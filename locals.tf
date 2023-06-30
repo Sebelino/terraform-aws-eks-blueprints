@@ -108,13 +108,7 @@ locals {
   ] : []
 
   # EMR on EKS IAM Roles for aws-auth
-  emr_on_eks_config_map = var.enable_emr_on_eks == true ? [
-    {
-      rolearn : "arn:${local.context.aws_partition_id}:iam::${local.context.aws_caller_identity_account_id}:role/AWSServiceRoleForAmazonEMRContainers"
-      username : "emr-containers"
-      groups : []
-    }
-  ] : []
+  emr_on_eks_config_map = []
 
   # Teams
   partition  = local.context.aws_partition_id
