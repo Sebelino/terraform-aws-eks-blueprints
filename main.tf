@@ -1,7 +1,5 @@
 module "kms" {
-  count  = 1
-  source = "./modules/aws-kms"
-
+  source                  = "./modules/aws-kms"
   alias                   = "alias/${var.cluster_name}"
   description             = "${var.cluster_name} EKS cluster secret encryption key"
   policy                  = data.aws_iam_policy_document.eks_key.json
@@ -32,7 +30,7 @@ module "aws_eks" {
   attach_cluster_encryption_policy = false
   cluster_encryption_config = [
     {
-      provider_key_arn = one(module.kms).key_arn
+      provider_key_arn = module.kms.key_arn
       resources        = ["secrets"]
     }
   ]
@@ -48,4 +46,30 @@ module "aws_eks_managed_node_groups" {
   context    = local.node_group_context
 
   depends_on = [kubernetes_config_map.aws_auth]
+}
+
+resource "kubernetes_config_map" "aws_auth" {
+  count = 1
+
+  metadata {
+    name      = "aws-auth"
+    namespace = "kube-system"
+    labels = {
+      "app.kubernetes.io/managed-by" = "terraform-aws-eks-blueprints"
+      "app.kubernetes.io/created-by" = "terraform-aws-eks-blueprints"
+    }
+  }
+
+  data = {
+    mapRoles = yamlencode(
+      distinct(concat(
+        local.managed_node_group_aws_auth_config_map,
+        var.map_roles,
+      ))
+    )
+    mapUsers    = yamlencode([])
+    mapAccounts = yamlencode([])
+  }
+
+  depends_on = [module.aws_eks.cluster_id, data.http.eks_cluster_readiness[0]]
 }
