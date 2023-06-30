@@ -46,16 +46,6 @@ variable "cluster_kms_key_additional_admin_arns" {
 }
 
 #-------------------------------
-# EKS Cluster Kubernetes Network Config
-#-------------------------------
-
-variable "cluster_identity_providers" {
-  description = "Map of cluster identity provider configurations to enable for the cluster. Note - this is different/separate from IRSA"
-  type        = any
-  default     = {}
-}
-
-#-------------------------------
 # Node Groups
 #-------------------------------
 variable "managed_node_groups" {

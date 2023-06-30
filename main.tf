@@ -36,7 +36,5 @@ module "aws_eks" {
       resources        = ["secrets"]
     }
   ]
-  cluster_identity_providers = var.cluster_identity_providers
-
   tags = var.tags
 }
