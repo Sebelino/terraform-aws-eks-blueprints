@@ -87,22 +87,22 @@ output "worker_node_security_group_id" {
 #---------------------------------
 output "self_managed_node_groups" {
   description = "Outputs from EKS Self-managed node groups "
-  value       = var.create_eks && length(var.self_managed_node_groups) > 0 ? module.aws_eks_self_managed_node_groups[*] : []
+  value       = []
 }
 
 output "self_managed_node_group_iam_role_arns" {
   description = "IAM role arn's of self managed node groups"
-  value       = var.create_eks && length(var.self_managed_node_groups) > 0 ? values({ for nodes in sort(keys(var.self_managed_node_groups)) : nodes => join(",", module.aws_eks_self_managed_node_groups[nodes].self_managed_nodegroup_iam_role_arns) }) : []
+  value       = []
 }
 
 output "self_managed_node_group_autoscaling_groups" {
   description = "Autoscaling group names of self managed node groups"
-  value       = var.create_eks && length(var.self_managed_node_groups) > 0 ? values({ for nodes in sort(keys(var.self_managed_node_groups)) : nodes => join(",", module.aws_eks_self_managed_node_groups[nodes].self_managed_asg_names) }) : []
+  value       = []
 }
 
 output "self_managed_node_group_iam_instance_profile_id" {
   description = "IAM instance profile id of managed node groups"
-  value       = var.create_eks && length(var.self_managed_node_groups) > 0 ? values({ for nodes in sort(keys(var.self_managed_node_groups)) : nodes => join(",", module.aws_eks_self_managed_node_groups[nodes].self_managed_nodegroup_iam_instance_profile_id) }) : []
+  value       = []
 }
 
 output "self_managed_node_group_aws_auth_config_map" {
