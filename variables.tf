@@ -31,27 +31,6 @@ variable "cluster_version" {
 }
 
 #-------------------------------
-# EKS Cluster VPC Config
-#-------------------------------
-variable "cluster_endpoint_public_access" {
-  description = "Indicates whether or not the EKS public API server endpoint is enabled. Default to EKS resource and it is true"
-  type        = bool
-  default     = true
-}
-
-variable "cluster_endpoint_private_access" {
-  description = "Indicates whether or not the EKS private API server endpoint is enabled. Default to EKS resource and it is false"
-  type        = bool
-  default     = false
-}
-
-variable "cluster_endpoint_public_access_cidrs" {
-  description = "List of CIDR blocks which can access the Amazon EKS public API server endpoint"
-  type        = list(string)
-  default     = ["0.0.0.0/0"]
-}
-
-#-------------------------------
 # EKS Cluster ENCRYPTION
 #-------------------------------
 variable "cluster_kms_key_arn" {

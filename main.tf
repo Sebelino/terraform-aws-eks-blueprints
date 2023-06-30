@@ -20,9 +20,9 @@ module "aws_eks" {
   iam_role_name            = local.cluster_iam_role_name
 
   subnet_ids                           = var.private_subnet_ids
-  cluster_endpoint_private_access      = var.cluster_endpoint_private_access
-  cluster_endpoint_public_access       = var.cluster_endpoint_public_access
-  cluster_endpoint_public_access_cidrs = var.cluster_endpoint_public_access_cidrs
+  cluster_endpoint_private_access      = false
+  cluster_endpoint_public_access       = true
+  cluster_endpoint_public_access_cidrs = ["0.0.0.0/0"]
   cluster_ip_family                    = var.cluster_ip_family
   cluster_service_ipv4_cidr            = var.cluster_service_ipv4_cidr
 
