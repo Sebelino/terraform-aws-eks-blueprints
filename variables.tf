@@ -30,15 +30,6 @@ variable "control_plane_subnet_ids" {
   default     = []
 }
 
-#-------------------------------
-# EKS module variables (terraform-aws-modules/eks/aws)
-#-------------------------------
-variable "create_eks" {
-  description = "Create EKS cluster"
-  type        = bool
-  default     = true
-}
-
 variable "cluster_timeouts" {
   description = "Create, update, and delete timeout configurations for the cluster"
   type        = map(string)

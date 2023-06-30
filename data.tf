@@ -3,12 +3,12 @@ data "aws_caller_identity" "current" {}
 data "aws_region" "current" {}
 
 data "aws_eks_cluster" "cluster" {
-  count = var.create_eks ? 1 : 0
+  count = 1
   name  = module.aws_eks.cluster_id
 }
 
 data "http" "eks_cluster_readiness" {
-  count = var.create_eks ? 1 : 0
+  count = 1
 
   url            = join("/", [data.aws_eks_cluster.cluster[0].endpoint, "healthz"])
   ca_certificate = base64decode(data.aws_eks_cluster.cluster[0].certificate_authority[0].data)

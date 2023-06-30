@@ -22,8 +22,6 @@ module "aws_eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "v18.29.1"
 
-  create = var.create_eks
-
   cluster_name     = var.cluster_name
   cluster_version  = var.cluster_version
   cluster_timeouts = var.cluster_timeouts
