@@ -44,7 +44,6 @@ module "aws_eks" {
   node_security_group_additional_rules = var.node_security_group_additional_rules
   node_security_group_tags             = var.node_security_group_tags
 
-  enable_irsa              = var.enable_irsa
   openid_connect_audiences = var.openid_connect_audiences
 
   create_cloudwatch_log_group            = var.create_cloudwatch_log_group

@@ -177,12 +177,6 @@ variable "cloudwatch_log_group_kms_key_id" {
   default     = null
 }
 
-variable "enable_irsa" {
-  description = "Determines whether to create an OpenID Connect Provider for EKS to enable IRSA"
-  type        = bool
-  default     = true
-}
-
 variable "openid_connect_audiences" {
   description = "List of OpenID Connect audience client IDs to add to the IRSA provider"
   type        = list(string)
