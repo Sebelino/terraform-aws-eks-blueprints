@@ -93,27 +93,6 @@ variable "cluster_service_ipv6_cidr" {
   default     = null
 }
 
-#-------------------------------
-# EKS Cluster CloudWatch Logging
-#-------------------------------
-variable "cluster_enabled_log_types" {
-  description = "A list of the desired control plane logging to enable"
-  type        = list(string)
-  default     = ["api", "audit", "authenticator", "controllerManager", "scheduler"]
-}
-
-variable "cloudwatch_log_group_retention_in_days" {
-  description = "Number of days to retain log events. Default retention - 90 days"
-  type        = number
-  default     = 90
-}
-
-variable "cloudwatch_log_group_kms_key_id" {
-  description = "If a KMS Key ARN is set, this key will be used to encrypt the corresponding log group. Please be sure that the KMS Key has an appropriate key policy (https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/encrypt-log-data-kms.html)"
-  type        = string
-  default     = null
-}
-
 variable "cluster_identity_providers" {
   description = "Map of cluster identity provider configurations to enable for the cluster. Note - this is different/separate from IRSA"
   type        = any
