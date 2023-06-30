@@ -1,10 +1,14 @@
-module "kms" {
-  source                  = "./modules/aws-kms"
-  alias                   = "alias/${var.cluster_name}"
+resource "aws_kms_key" "this" {
   description             = "${var.cluster_name} EKS cluster secret encryption key"
   policy                  = data.aws_iam_policy_document.eks_key.json
+  enable_key_rotation     = true
   deletion_window_in_days = 30
   tags                    = var.tags
+}
+
+resource "aws_kms_alias" "this" {
+  name          = "alias/${var.cluster_name}"
+  target_key_id = aws_kms_key.this.key_id
 }
 
 module "aws_eks" {
@@ -30,7 +34,7 @@ module "aws_eks" {
   attach_cluster_encryption_policy = false
   cluster_encryption_config = [
     {
-      provider_key_arn = module.kms.key_arn
+      provider_key_arn = aws_kms_key.this.arn
       resources        = ["secrets"]
     }
   ]
