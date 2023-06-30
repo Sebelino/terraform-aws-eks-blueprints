@@ -210,22 +210,6 @@ variable "enable_windows_support" {
   default     = false
 }
 
-
-variable "worker_additional_security_group_ids" {
-  description = "A list of additional security group ids to attach to worker instances"
-  type        = list(string)
-  default     = []
-}
-
-#-------------------------------
-# Fargate
-#-------------------------------
-variable "fargate_profiles" {
-  description = "Fargate profile configuration"
-  type        = any
-  default     = {}
-}
-
 #-------------------------------
 # aws-auth Config Map
 #-------------------------------
