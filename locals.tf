@@ -17,8 +17,7 @@ locals {
   vpc_id             = var.vpc_id
   private_subnet_ids = var.private_subnet_ids
 
-  enable_workers            = length(var.self_managed_node_groups) > 0 || length(var.managed_node_groups) > 0 ? true : false
-  worker_security_group_ids = local.enable_workers ? compact([module.aws_eks.node_security_group_id]) : []
+  worker_security_group_ids = compact([module.aws_eks.node_security_group_id])
 
   node_group_context = {
     # EKS Cluster Config

@@ -48,18 +48,6 @@ variable "managed_node_groups" {
   default     = {}
 }
 
-variable "self_managed_node_groups" {
-  description = "Self-managed node groups configuration"
-  type        = any
-  default     = {}
-}
-
-variable "enable_windows_support" {
-  description = "Enable Windows support"
-  type        = bool
-  default     = false
-}
-
 #-------------------------------
 # aws-auth Config Map
 #-------------------------------
