@@ -33,12 +33,6 @@ variable "cluster_version" {
 #-------------------------------
 # EKS Cluster ENCRYPTION
 #-------------------------------
-variable "cluster_kms_key_arn" {
-  description = "A valid EKS Cluster KMS Key ARN to encrypt Kubernetes secrets"
-  type        = string
-  default     = null
-}
-
 variable "cluster_kms_key_additional_admin_arns" {
   description = "A list of additional IAM ARNs that should have FULL access (kms:*) in the KMS key policy"
   type        = list(string)

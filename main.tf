@@ -32,7 +32,7 @@ module "aws_eks" {
   attach_cluster_encryption_policy = false
   cluster_encryption_config = [
     {
-      provider_key_arn = try(module.kms[0].key_arn, var.cluster_kms_key_arn)
+      provider_key_arn = one(module.kms).key_arn
       resources        = ["secrets"]
     }
   ]
