@@ -28,6 +28,24 @@ module "aws_eks" {
 
   vpc_id = var.vpc_id
 
+  eks_managed_node_groups = {
+    ng-platform-blueprint = {
+      iam_role_name            = "platform-blueprint-ng-platform-blueprint"
+      iam_role_use_name_prefix = false
+      use_name_prefix          = true
+      name                     = "ng-platform-blueprint"
+      create_launch_template   = false
+      launch_template_name     = ""
+      instance_types           = ["t3.medium"]
+      min_size                 = 4
+      desired_size             = 4
+      max_size                 = 6
+      labels = {
+        Which = "managed"
+      }
+    }
+  }
+
   create_cloudwatch_log_group = false
   cluster_enabled_log_types   = ["api", "audit", "authenticator", "controllerManager", "scheduler"]
 
@@ -39,17 +57,6 @@ module "aws_eks" {
     }
   ]
   tags = var.tags
-}
-
-module "aws_eks_managed_node_groups" {
-  source = "./modules/aws-eks-managed-node-groups"
-
-  for_each = var.managed_node_groups
-
-  managed_ng = each.value
-  context    = local.node_group_context
-
-  depends_on = [kubernetes_config_map.aws_auth]
 }
 
 resource "kubernetes_config_map" "aws_auth" {
