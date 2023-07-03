@@ -50,7 +50,7 @@ locals {
   # Managed node IAM Roles for aws-auth
   managed_node_group_aws_auth_config_map = [
     for key, node in var.managed_node_groups : {
-      rolearn : try(node.iam_role_arn, "arn:${local.context.aws_partition_id}:iam::${local.context.aws_caller_identity_account_id}:role/${module.aws_eks.cluster_id}-${node.node_group_name}")
+      rolearn : "arn:${local.context.aws_partition_id}:iam::${local.context.aws_caller_identity_account_id}:role/${module.aws_eks.cluster_id}-${node.node_group_name}"
       username : "system:node:{{EC2PrivateDNSName}}"
       groups : [
         "system:bootstrappers",
