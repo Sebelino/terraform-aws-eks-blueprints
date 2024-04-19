@@ -81,6 +81,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://aws-ia.github.io/terraform-aws-eks-blueprints/patterns/istio-multi-cluster/</loc>
+         <lastmod>2024-04-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://aws-ia.github.io/terraform-aws-eks-blueprints/patterns/istio/</loc>
          <lastmod>2024-04-19</lastmod>
          <changefreq>daily</changefreq>
@@ -111,12 +116,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://aws-ia.github.io/terraform-aws-eks-blueprints/patterns/sso-iam-identity-center-aws-auth/</loc>
-         <lastmod>2024-04-19</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://aws-ia.github.io/terraform-aws-eks-blueprints/patterns/sso-iam-identity-center-cam/</loc>
+         <loc>https://aws-ia.github.io/terraform-aws-eks-blueprints/patterns/sso-iam-identity-center/</loc>
          <lastmod>2024-04-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -127,11 +127,6 @@
     </url>
     <url>
          <loc>https://aws-ia.github.io/terraform-aws-eks-blueprints/patterns/stateful/</loc>
-         <lastmod>2024-04-19</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://aws-ia.github.io/terraform-aws-eks-blueprints/patterns/targeted-odcr/</loc>
          <lastmod>2024-04-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -147,11 +142,6 @@
     </url>
     <url>
          <loc>https://aws-ia.github.io/terraform-aws-eks-blueprints/patterns/wireguard-with-cilium/</loc>
-         <lastmod>2024-04-19</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://aws-ia.github.io/terraform-aws-eks-blueprints/patterns/vpc-lattice/client-server-communication/</loc>
          <lastmod>2024-04-19</lastmod>
          <changefreq>daily</changefreq>
     </url>

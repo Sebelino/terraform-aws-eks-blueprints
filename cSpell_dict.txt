@@ -4,7 +4,6 @@ addrs
 adot
 agones
 akuity
-alekc
 algbw
 ALLOWVOLUMEEXPANSION
 amazonlinux
@@ -74,6 +73,7 @@ flblogs
 fluentbit
 gameserver
 gameservers
+gavinbunney
 gitops
 helloworld
 heptio
@@ -144,7 +144,6 @@ tcpdump
 templatefile
 tfstate
 tfvars
-tolerations
 tolist
 toset
 velero
