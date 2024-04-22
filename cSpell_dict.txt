@@ -144,7 +144,6 @@ tcpdump
 templatefile
 tfstate
 tfvars
-tolerations
 tolist
 toset
 velero
