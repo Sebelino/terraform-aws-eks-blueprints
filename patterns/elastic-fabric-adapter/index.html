@@ -363,26 +363,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../appmesh-mtls/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    AWS AppMesh mTLS
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../aws-vpc-cni-network-policy/" class="md-nav__link">
         
   
@@ -744,7 +724,27 @@
   
   
     <li class="md-nav__item">
-      <a href="../sso-iam-identity-center/" class="md-nav__link">
+      <a href="../sso-iam-identity-center-aws-auth/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SSO - IAM Identity Center
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sso-iam-identity-center-cam/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -789,6 +789,26 @@
   
   <span class="md-ellipsis">
     Stateful
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../targeted-odcr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Targeted On-Demand Capacity Reservation (ODCR)
   </span>
   
 
@@ -853,6 +873,68 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_25" >
+        
+          <label class="md-nav__link" for="__nav_3_25" id="__nav_3_25_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Vpc lattice
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_25_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_25">
+            <span class="md-nav__icon md-icon"></span>
+            Vpc lattice
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vpc-lattice/client-server-communication/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Amazon VPC Lattice Client-server Communication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -1157,6 +1239,10 @@
 <h2 id="deploy">Deploy<a class="headerlink" href="#deploy" title="Permanent link">&para;</a></h2>
 <p>See <a href="https://aws-ia.github.io/terraform-aws-eks-blueprints/getting-started/#prerequisites">here</a> for the prerequisites and steps to deploy this pattern.</p>
 <h2 id="validate">Validate<a class="headerlink" href="#validate" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The following steps are shown with <code>g5.8xlarge</code> for frugality. Values shown below will change based on the instance type selected (i.e. - <code>p5.48xlarge</code> has 8 GPUs and 32 EFA interfaces)</p>
+</div>
 <ol>
 <li>
 <p>List the nodes by instance type:</p>
@@ -1284,7 +1370,7 @@ specified in the mpijob manifest. In this result the average bus bandwidth is 1.
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; Amazon 2023
+      Copyright &copy; Amazon 2024
     </div>
   
   
