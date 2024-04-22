@@ -1,6 +1,6 @@
 site_name: Amazon EKS Blueprints for Terraform
 docs_dir: docs/
-copyright: Copyright &copy; Amazon 2023
+copyright: Copyright &copy; Amazon 2024
 site_author: AWS
 site_url: https://aws-ia.github.io/terraform-aws-eks-blueprints/
 repo_name: terraform-aws-eks-blueprints
@@ -44,14 +44,19 @@ plugins:
         - en
   - awesome-pages
 
+hooks:
+  - .github/scripts/mkdocs-hooks.py
+
 extra:
   version:
     provider: mike
 
 markdown_extensions:
+  - attr_list
   - admonition
   - codehilite
   - footnotes
+  - md_in_html
   - pymdownx.critic
   - pymdownx.details
   - pymdownx.highlight:
